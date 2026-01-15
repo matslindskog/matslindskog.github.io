@@ -14,7 +14,9 @@
       --accent: #6ee7ff;
       --border: rgba(255,255,255,0.14);
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -26,23 +28,37 @@
       color: var(--text);
       line-height: 1.5;
     }
+
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
 
     .wrap{max-width: 980px; margin: 0 auto; padding: 56px 20px}
+
     .top{
-      display:flex; gap:28px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+      display:flex;
+      gap:28px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
       margin-bottom: 28px;
     }
+
     .badge{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:10px 14px; border:1px solid var(--border); border-radius:999px;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border:1px solid var(--border);
+      border-radius:999px;
       background: rgba(255,255,255,0.04);
       color: var(--muted);
       font-size: 14px;
     }
+
     .hero{
-      display:grid; grid-template-columns: 1.2fr 0.8fr; gap:18px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:18px;
     }
     @media (max-width: 820px){ .hero{grid-template-columns:1fr} }
 
@@ -54,22 +70,179 @@
       backdrop-filter: blur(10px);
     }
 
-    h1{font-size: 38px; letter-spacing:-0.02em; margin: 8px 0 10px}
+    h1{
+      font-size: 38px;
+      letter-spacing:-0.02em;
+      margin: 8px 0 10px;
+    }
     @media (max-width: 520px){ h1{font-size: 30px} }
 
-    .lead{color: var(--muted); font-size: 18px; margin: 0 0 16px}
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px}
+    .lead{
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0 0 18px;
+    }
+
+    .profile{
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      margin: 12px 0 10px;
+      display:block;
+    }
+
+    .cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+      margin-bottom: 10px;
+    }
+
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 10px 14px; border-radius: 12px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 12px;
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.06);
       color: var(--text);
       font-weight: 600;
     }
+
     .btn.primary{
       border-color: rgba(110,231,255,0.55);
       background: rgba(110,231,255,0.16);
     }
 
     .grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 820px){ .grid{grid-template-columns:1fr} }
+
+    h2{font-size: 18px; margin: 0 0 10px}
+
+    ul{margin:0; padding-left: 18px; color: var(--muted)}
+    li{margin: 6px 0}
+
+    .mini{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .kicker{color: var(--muted); font-size: 14px; margin:0}
+
+    .pillrow{display:flex; flex-wrap:wrap; gap:8px}
+    .pill{
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer{margin-top: 18px; color: var(--muted); font-size: 14px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="badge">👋 Hej, jag heter <strong style="color:var(--text)">Mats Lindskog</strong></div>
+      <div class="badge">📍 Västerås · 💼 Ledarskap · Utveckling · Genomförande</div>
+    </div>
+
+    <div class="hero">
+      <!-- VÄNSTERKOLUMN -->
+      <div class="card">
+        <h1>Får strategi att bli verklighet genom att utveckla struktur, kultur och förmågor</h1>
+
+        <img src="Mats.jpg" alt="Mats Lindskog" class="profile">
+
+        <p class="lead">
+          Jag är en utvecklingsdriven ledare med stark systemförståelse och vana att arbeta nära politisk styrning.
+          Jag hjälper verksamheter att hitta fokus, fatta kloka vägval och få genomförandet att fungera.
+          Jag bidrar med riktning, tempo och arbetssätt som gör det lätt att göra rätt.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="mailto:matslindskogprivat@gmail.com">Mejla mig</a>
+          <a class="btn" href="https://www.linkedin.com/in/mats-lindskog/">LinkedIn</a>
+        </div>
+
+        <div class="grid">
+          <div class="card" style="padding:16px">
+            <h2>Det jag är bra på</h2>
+            <ul>
+              <li>Strategisk styrning, prioritering och genomförande</li>
+              <li>Chefskap i ledningsmiljö, inklusive indirekt ledarskap och chef över chefer</li>
+              <li>Verksamhetsutveckling i komplexa system, processer, gränssnitt och beroenden</li>
+              <li>Intressenthantering, påverkan och positionering i samhällsfrågor</li>
+              <li>Samverkan med näringsliv, akademi och offentliga aktörer</li>
+              <li>Organisationsutveckling, service och leveransförmåga</li>
+              <li>Kommunikation som verktyg för förändring, förankring och beteenden</li>
+            </ul>
+          </div>
+
+          <div class="card" style="padding:16px">
+            <h2>Så jobbar jag</h2>
+            <ul>
+              <li><strong>Läget idag och vart vi ska</strong><br>Jag ringar in nuläget och formulerar en tydlig målbild, så att glappet blir synligt och går att arbeta med.</li>
+              <li><strong>Tydliga roller och gemensamma arbetssätt</strong><br>Jag gör det lätt att förstå vem som gör vad, vilka förväntningar som gäller och hur beslut, samverkan och uppföljning ska fungera.</li>
+              <li><strong>En kultur som håller i vardagen</strong><br>Jag stärker samarbetet när det är press: ansvar, respekt, tidig signalering och hjälp över gränser, så att helheten vinner.</li>
+              <li><strong>Förmågor som stärker chefer och team</strong><br>Jag bygger praktiska färdigheter som får saker i mål: prioritering, tydlighet, mötesledning, svåra samtal och återkoppling.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- HÖGERKOLUMN -->
+      <div class="mini">
+        <div class="card">
+          <h2>Snabbfakta</h2>
+          <p class="kicker">Kort om hur jag skapar förflyttning i komplexa miljöer.</p>
+          <div class="pillrow" style="margin-top:10px">
+            <div class="pill">Utvecklingsdriven</div>
+            <div class="pill">Systemförståelse</div>
+            <div class="pill">Ledarskap</div>
+            <div class="pill">Genomförande</div>
+            <div class="pill">Samverkan</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Roller jag haft</h2>
+          <ul>
+            <li><strong>Kommunikationsdirektör</strong></li>
+            <li><strong>Strategisk rådgivare</strong></li>
+            <li><strong>Ledningsstrateg</strong></li>
+            <li><strong>Utvecklingschef</strong></li>
+            <li><strong>Tillförordnad HR-chef</strong></li>
+            <li><strong>Kommunikationsstrateg</strong></li>
+            <li><strong>Projektledare och kundansvarig</strong></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Kontakt</h2>
+          <ul>
+            <li>Mejl: <a href="mailto:matslindskogprivat@gmail.com">matslindskogprivat@gmail.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/mats-lindskog/">mats-lindskog</a></li>
+            <li>Telefon: 070-226 97 02</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer">© Mats Lindskog · Uppdaterad: 2026</p>
+  </div>
+</body>
+</html>
