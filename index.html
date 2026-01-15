@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ditt namn</title>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --accent: #6ee7ff;
+      --border: rgba(255,255,255,0.14);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 600px at 15% 10%, rgba(110,231,255,0.25), transparent 60%),
+        radial-gradient(900px 600px at 85% 25%, rgba(167,139,250,0.22), transparent 60%),
+        radial-gradient(900px 600px at 55% 95%, rgba(34,197,94,0.12), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width: 980px; margin: 0 auto; padding: 56px 20px}
+    .top{
+      display:flex; gap:28px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+      margin-bottom: 28px;
+    }
+    .badge{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 14px; border:1px solid var(--border); border-radius:999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .hero{
+      display:grid; grid-template-columns: 1.2fr 0.8fr; gap:18px;
+    }
+    @media (max-width: 820px){ .hero{grid-template-columns:1fr} }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+    h1{font-size: 44px; letter-spacing:-0.02em; margin: 8px 0 10px}
+    @media (max-width: 520px){ h1{font-size: 34px} }
+    .lead{color: var(--muted); font-size: 18px; margin: 0 0 16px}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px; border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .btn.primary{
+      border-color: rgba(110,231,255,0.55);
+      background: rgba(110,231,255,0.16);
+    }
+    .grid{display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px}
+    @media (max-width: 820px){ .grid{grid-template-columns:1fr} }
+
+    h2{font-size: 18px; margin: 0 0 10px}
+    ul{margin:0; padding-left: 18px; color: var(--muted)}
+    li{margin: 6px 0}
+
+    .mini{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .kicker{color: var(--muted); font-size: 14px; margin:0}
+    .pillrow{display:flex; flex-wrap:wrap; gap:8px}
+    .pill{
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer{margin-top: 18px; color: var(--muted); font-size: 14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="badge">👋 Hej, jag heter <strong style="color:var(--text)">Ditt namn</strong></div>
+      <div class="badge">📍 Ort · 💼 Titel/roll · ✨ Kort fokus</div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1>Jag hjälper organisationer att få saker att hända</h1>
+        <p class="lead">
+          Skriv 3–5 rader om vem du är, vad du kan och vilken typ av uppdrag du trivs med.
+          Håll det konkret och mänskligt.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="mailto:dinmail@exempel.se">Mejla mig</a>
+          <a class="btn" href="https://www.linkedin.com/in/dittkonto/">LinkedIn</a>
+          <a class="btn" href="#exempel">Exempel på resultat</a>
+        </div>
+
+        <div class="grid">
+          <div class="card" style="padding:16px">
+            <h2>Det jag är bra på</h2>
+            <ul>
+              <li>Exempel: leda utveckling i komplexa miljöer</li>
+              <li>Exempel: kommunikation som skapar riktning</li>
+              <li>Exempel: få samarbete att fungera i praktiken</li>
+              <li>Exempel: struktur, prioritering och genomförande</li>
+            </ul>
+          </div>
+
+          <div class="card" style="padding:16px">
+            <h2>Så jobbar jag</h2>
+            <ul>
+              <li>Tydlig bild av vad som ska uppnås</li>
+              <li>Små steg som går att följa upp</li>
+              <li>Ägarskap, ansvar och återkoppling</li>
+              <li>Lugnt tempo, hög kvalitet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mini">
+        <div class="card">
+          <h2>Snabbfakta</h2>
+          <p class="kicker">Fyll i sånt som hjälper någon att förstå dig snabbt.</p>
+          <div class="pillrow" style="margin-top:10px">
+            <div class="pill">Utvecklingsdriven</div>
+            <div class="pill">Systemförståelse</div>
+            <div class="pill">Ledarskap</div>
+            <div class="pill">Kommunikation</div>
+            <div class="pill">Genomförande</div>
+          </div>
+        </div>
+
+        <div class="card" id="exempel">
+          <h2>Exempel på resultat</h2>
+          <ul>
+            <li><strong>Case 1:</strong> Kort beskrivning + effekt i en mening.</li>
+            <li><strong>Case 2:</strong> Kort beskrivning + effekt i en mening.</li>
+            <li><strong>Case 3:</strong> Kort beskrivning + effekt i en mening.</li>
+          </ul>
+          <div class="footer">
+            Vill du ha en PDF med mer? Lägg till en länk här.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Kontakt</h2>
+          <ul>
+            <li>Mejl: <a href="mailto:dinmail@exempel.se">dinmail@exempel.se</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/dittkonto/">din profil</a></li>
+            <li>Telefon: 070-xxx xx xx</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer">© Ditt namn · Uppdaterad: 2026</p>
+  </div>
+</body>
+</html>
