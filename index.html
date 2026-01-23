@@ -16,7 +16,6 @@
       --panel2: rgba(255,255,255,0.04);
 
       --accent: #6ee7ff;
-      --accent2: #a78bfa;
 
       --shadow: 0 14px 36px rgba(0,0,0,0.30);
 
@@ -108,27 +107,28 @@
       border-radius: var(--radius);
       background: var(--panel);
       box-shadow: var(--shadow);
-      padding: 26px;
+      padding: 28px;
       backdrop-filter: blur(10px);
     }
 
-    .panel.soft{background: var(--panel2)}
-
-    .grid{
+    /* Start block layout */
+    .start{
       display:grid;
-      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-columns: 1fr;
       gap: 18px;
       align-items:start;
     }
-    @media (max-width: 760px){ .grid{grid-template-columns:1fr} }
 
     h1{
-      font-size: 48px;
+      font-size: 52px;
       letter-spacing: -0.02em;
       margin: 8px 0 12px;
-      line-height: 1.12;
+      line-height: 1.10;
+      max-width: 22ch;
     }
-    @media (max-width: 760px){ h1{font-size: 34px} }
+    @media (max-width: 760px){
+      h1{font-size: 34px; max-width: none}
+    }
 
     h2{
       margin:0 0 10px;
@@ -162,16 +162,6 @@
     }
     .btn:hover{text-decoration:none; filter: brightness(1.08)}
 
-    .profile{
-      width: 150px;
-      height: 150px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      object-fit: cover;
-      display:block;
-      margin: 10px 0 6px;
-    }
-
     .meta{
       display:flex;
       flex-wrap:wrap;
@@ -189,7 +179,7 @@
       font-weight: 650;
     }
 
-    /* Kompetenz-kort */
+    /* Kompetenser */
     .cards{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -216,7 +206,6 @@
       font-size: 14px;
     }
 
-    /* Klickbara kort */
     .cards a.card{
       display:block;
       color: inherit;
@@ -228,9 +217,7 @@
       border-color: rgba(255,255,255,0.22);
       transform: translateY(-1px);
     }
-    .cards a.card:active{
-      transform: translateY(0px);
-    }
+    .cards a.card:active{transform: translateY(0px)}
 
     /* About */
     .about{
@@ -250,6 +237,13 @@
       text-align:center;
       color: var(--muted);
       font-size: 14px;
+    }
+
+    /* Small polish */
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,0.08);
+      margin: 18px 0 0;
     }
   </style>
 </head>
@@ -278,7 +272,7 @@
     <!-- 1. START -->
     <section id="start" class="section">
       <div class="panel">
-        <div class="grid">
+        <div class="start">
           <div>
             <h1>Får strategi att bli verklighet genom struktur, kultur och förmågor</h1>
 
@@ -299,18 +293,8 @@
               <span class="chip">Genomförande</span>
               <span class="chip">Samverkan</span>
             </div>
-          </div>
 
-          <div class="panel soft">
-            <h2>Snabbt om mig</h2>
-
-            <img src="Mats.jpg" alt="Mats Lindskog" class="profile">
-
-            <ul>
-              <li>Ledarskap i komplexa miljöer</li>
-              <li>Struktur, kultur och förmågor</li>
-              <li>Fokus på leverans och effekt</li>
-            </ul>
+            <div class="divider"></div>
           </div>
         </div>
       </div>
