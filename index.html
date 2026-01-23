@@ -190,7 +190,7 @@
       font-weight: 650;
     }
 
-    /* Competence cards */
+    /* Service cards */
     .cards{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -215,6 +215,22 @@
       margin:0;
       color: var(--muted);
       font-size: 14px;
+    }
+
+    /* Klickbara tjänstekort */
+    .cards a.card{
+      display:block;
+      color: inherit;
+      transition: transform .08s ease, background .12s ease, border-color .12s ease;
+    }
+    .cards a.card:hover{
+      text-decoration:none;
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.22);
+      transform: translateY(-1px);
+    }
+    .cards a.card:active{
+      transform: translateY(0px);
     }
 
     /* About */
@@ -253,7 +269,7 @@
 
       <nav class="nav">
         <a href="#start">Start</a>
-        <a href="#kompetenser">Mina kompetenser</a>
+        <a href="#kompetenser">Tjänster</a>
         <a href="#ommig">Om mig</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -302,41 +318,41 @@
     </section>
 
 
-    <!-- 2. MINA KOMPETENSER -->
+    <!-- 2. TJÄNSTER -->
     <section id="kompetenser" class="section">
       <div class="panel">
-        <h2>Mina kompetenser</h2>
+        <h2>Tjänster</h2>
 
         <div class="cards">
-          <div class="card">
-            <h3>Strategisk styrning, prioritering och genomförande</h3>
-            <p>Skapar riktning, gör val och bygger ett tempo som håller hela vägen till resultat.</p>
-          </div>
+          <a class="card" href="forandringsledning.html">
+            <h3>Förändringsledning</h3>
+            <p>Från nuläge till önskat läge med struktur som håller i vardagen.</p>
+          </a>
 
-          <div class="card">
-            <h3>Chefskap i ledningsmiljö</h3>
-            <p>Indirekt ledarskap och chef över chefer, med tydlighet och ansvar i fokus.</p>
-          </div>
+          <a class="card" href="strategisk-radgivning.html">
+            <h3>Strategisk rådgivning</h3>
+            <p>Riktning, prioritering och strategiarbete som ger verklig effekt.</p>
+          </a>
 
-          <div class="card">
-            <h3>Verksamhetsutveckling i komplexa system</h3>
-            <p>Processer, gränssnitt och beroenden, och förbättringar som fungerar i vardagen.</p>
-          </div>
+          <a class="card" href="ledarutveckling.html">
+            <h3>Ledar- och ledarskapsutveckling</h3>
+            <p>Utveckling som stärker chefer, team och ledningsgrupper över tid.</p>
+          </a>
 
-          <div class="card">
-            <h3>Intressenthantering och påverkan</h3>
-            <p>Förankrar, positionerar och tar samhällsfrågor framåt i samspel med omvärlden.</p>
-          </div>
+          <a class="card" href="genomforandekraft.html">
+            <h3>Verksamhetsutveckling och genomförandekraft</h3>
+            <p>Gå från ord till handling genom roller, arbetssätt och uppföljning.</p>
+          </a>
 
-          <div class="card">
-            <h3>Samverkan med näringsliv, akademi och offentliga aktörer</h3>
-            <p>Bygger samarbeten som skapar värde och stärker genomförandekraft.</p>
-          </div>
+          <a class="card" href="samverkan.html">
+            <h3>Samverkan och intressentledning</h3>
+            <p>Förtroende, tydlighet och framdrift när många aktörer ska mötas.</p>
+          </a>
 
-          <div class="card">
-            <h3>Organisationsutveckling, service och leveransförmåga</h3>
-            <p>Tydliga roller, arbetsformer och uppföljning som gör det lätt att göra rätt.</p>
-          </div>
+          <a class="card" href="kommunikation.html">
+            <h3>Kommunikation som skapar förflyttning</h3>
+            <p>Kommunikativt ledarskap, media, kris och förändring med tydlighet.</p>
+          </a>
         </div>
       </div>
     </section>
