@@ -13,9 +13,12 @@
       --muted: rgba(255,255,255,0.70);
       --accent: #6ee7ff;
       --border: rgba(255,255,255,0.14);
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
 
     *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
 
     body{
       margin:0;
@@ -26,45 +29,80 @@
         radial-gradient(900px 600px at 55% 95%, rgba(34,197,94,0.12), transparent 60%),
         var(--bg);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
 
-.wrap{max-width: 1180px; margin: 0 auto; padding: 56px 28px}
+    .wrap{max-width: 1200px; margin: 0 auto; padding: 28px 24px 56px}
 
-
-    .top{
+    .topbar{
+      position: sticky;
+      top: 12px;
+      z-index: 50;
       display:flex;
-      gap:28px;
+      gap:12px;
       align-items:center;
       justify-content:space-between;
       flex-wrap:wrap;
-      margin-bottom: 28px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(10,16,28,0.65);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
     }
 
-    .badge{
-      display:inline-flex;
+    .brand{
+      display:flex;
       gap:10px;
       align-items:center;
-      padding:10px 14px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background: rgba(255,255,255,0.04);
-      color: var(--muted);
-      font-size: 14px;
+      min-width: 220px;
     }
 
-    .hero{
-  display:grid;
-  grid-template-columns: 1.4fr 0.6fr;
-  gap:22px;
-  align-items:start;
-}
-      
+    .avatar{
+      width:36px;
+      height:36px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      object-fit: cover;
     }
-    @media (max-width: 820px){ .hero{grid-template-columns:1fr} }
+
+    .brand strong{display:block; font-size: 14px}
+    .brand span{display:block; font-size: 13px; color: var(--muted)}
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .tab{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .tab:hover{
+      text-decoration:none;
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    .section{
+      margin-top: 22px;
+      padding-top: 14px;
+    }
 
     .card{
       background: var(--card);
@@ -72,29 +110,29 @@
       border-radius: 18px;
       padding: 22px;
       backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
     }
 
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 900px){ .grid-2{grid-template-columns:1fr} }
+
     h1{
-      font-size: 38px;
-      letter-spacing:-0.02em;
-      margin: 8px 0 10px;
+      font-size: 40px;
+      letter-spacing: -0.02em;
+      margin: 6px 0 10px;
     }
     @media (max-width: 520px){ h1{font-size: 30px} }
 
     .lead{
       color: var(--muted);
       font-size: 18px;
-      margin: 0 0 18px;
-    }
-
-    .profile{
-      width: 120px;
-      height: 120px;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 1px solid var(--border);
-      margin: 12px 0 10px;
-      display:block;
+      margin: 0 0 14px;
+      max-width: 70ch;
     }
 
     .cta{
@@ -102,7 +140,6 @@
       gap:10px;
       flex-wrap:wrap;
       margin-top: 12px;
-      margin-bottom: 10px;
     }
 
     .btn{
@@ -114,7 +151,7 @@
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.06);
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .btn.primary{
@@ -122,28 +159,19 @@
       background: rgba(110,231,255,0.16);
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 14px;
-    }
-    @media (max-width: 820px){ .grid{grid-template-columns:1fr} }
-
-    h2{font-size: 18px; margin: 0 0 10px}
-
-    ul{margin:0; padding-left: 18px; color: var(--muted)}
-    li{margin: 6px 0}
-
-    .mini{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+    .profile{
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      margin: 10px 0 6px;
     }
 
-    .kicker{color: var(--muted); font-size: 14px; margin:0}
+    .mini h2{margin:0 0 10px; font-size: 16px}
+    .kicker{margin:0; color: var(--muted); font-size: 14px}
 
-    .pillrow{display:flex; flex-wrap:wrap; gap:8px}
+    .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px}
     .pill{
       padding: 8px 10px;
       border: 1px solid var(--border);
@@ -151,101 +179,103 @@
       background: rgba(255,255,255,0.04);
       color: var(--muted);
       font-size: 13px;
+      font-weight: 650;
     }
 
-    .footer{margin-top: 18px; color: var(--muted); font-size: 14px}
+    .section-title{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:14px;
+      margin: 0 0 10px;
+    }
+
+    .section-title h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .section-title p{margin:0; color: var(--muted); font-size: 14px}
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 900px){ .cards{grid-template-columns:1fr} }
+
+    .item h3{
+      margin:0 0 8px;
+      font-size: 16px;
+    }
+    .item p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 900px){ .about{grid-template-columns:1fr} }
+
+    ul{margin:0; padding-left: 18px; color: var(--muted)}
+    li{margin: 6px 0}
+
+    .footer{
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align:center;
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="top">
-      <div class="badge">👋 Hej, jag heter <strong style="color:var(--text)">Mats Lindskog</strong></div>
-      <div class="badge">📍 Västerås · 💼 Ledarskap · Utveckling · Genomförande</div>
-    </div>
 
-    <div class="hero">
-      <!-- VÄNSTERKOLUMN -->
-      <div class="card">
-        <h1>Får strategi att bli verklighet genom att utveckla struktur, kultur och förmågor</h1>
-
-        <img src="Mats.jpg" alt="Mats Lindskog" class="profile">
-
-        <p class="lead">
-          Jag är en utvecklingsdriven ledare med stark systemförståelse och vana att arbeta nära politisk styrning.
-          Jag hjälper verksamheter att hitta fokus, fatta kloka vägval och få genomförandet att fungera.
-          Jag bidrar med riktning, tempo och arbetssätt som gör det lätt att göra rätt.
-        </p>
-
-        <div class="cta">
-          <a class="btn primary" href="mailto:matslindskogprivat@gmail.com">Mejla mig</a>
-          <a class="btn" href="https://www.linkedin.com/in/mats-lindskog/">LinkedIn</a>
-        </div>
-
-        <div class="grid">
-          <div class="card" style="padding:16px">
-            <h2>Det jag är bra på</h2>
-            <ul>
-              <li>Strategisk styrning, prioritering och genomförande</li>
-              <li>Chefskap i ledningsmiljö, inklusive indirekt ledarskap och chef över chefer</li>
-              <li>Verksamhetsutveckling i komplexa system, processer, gränssnitt och beroenden</li>
-              <li>Intressenthantering, påverkan och positionering i samhällsfrågor</li>
-              <li>Samverkan med näringsliv, akademi och offentliga aktörer</li>
-              <li>Organisationsutveckling, service och leveransförmåga</li>
-              <li>Kommunikation som verktyg för förändring, förankring och beteenden</li>
-            </ul>
-          </div>
-
-          <div class="card" style="padding:16px">
-            <h2>Så jobbar jag</h2>
-            <ul>
-              <li><strong>Läget idag och vart vi ska</strong><br>Jag ringar in nuläget och formulerar en tydlig målbild, så att glappet blir synligt och går att arbeta med.</li>
-              <li><strong>Tydliga roller och gemensamma arbetssätt</strong><br>Jag gör det lätt att förstå vem som gör vad, vilka förväntningar som gäller och hur beslut, samverkan och uppföljning ska fungera.</li>
-              <li><strong>En kultur som håller i vardagen</strong><br>Jag stärker samarbetet när det är press: ansvar, respekt, tidig signalering och hjälp över gränser, så att helheten vinner.</li>
-              <li><strong>Förmågor som stärker chefer och team</strong><br>Jag bygger praktiska färdigheter som får saker i mål: prioritering, tydlighet, mötesledning, svåra samtal och återkoppling.</li>
-            </ul>
-          </div>
+    <div class="topbar">
+      <div class="brand">
+        <img class="avatar" src="Mats.jpg" alt="Mats Lindskog">
+        <div>
+          <strong>Mats Lindskog</strong>
+          <span>Västerås | Ledarskap | Utveckling | Genomförande</span>
         </div>
       </div>
 
-      <!-- HÖGERKOLUMN -->
-      <div class="mini">
+      <nav class="nav">
+        <a class="tab" href="#start">Start</a>
+        <a class="tab" href="#kompetenser">Mina kompetenser</a>
+        <a class="tab" href="#ommig">Om mig</a>
+        <a class="tab" href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+
+
+    <!-- 1. START -->
+    <section id="start" class="section">
+      <div class="grid-2">
         <div class="card">
-          <h2>Snabbfakta</h2>
-          <p class="kicker">Kort om hur jag skapar förflyttning i komplexa miljöer.</p>
-          <div class="pillrow" style="margin-top:10px">
-            <div class="pill">Utvecklingsdriven</div>
-            <div class="pill">Systemförståelse</div>
-            <div class="pill">Ledarskap</div>
-            <div class="pill">Genomförande</div>
-            <div class="pill">Samverkan</div>
+          <h1>Får strategi att bli verklighet genom struktur, kultur och förmågor</h1>
+
+          <img src="Mats.jpg" alt="Mats Lindskog" class="profile">
+
+          <p class="lead">
+            Jag är en utvecklingsdriven ledare med stark systemförståelse och vana att arbeta nära politisk styrning.
+            Jag hjälper verksamheter att hitta fokus, fatta kloka vägval och få genomförandet att fungera.
+            Jag bidrar med riktning, tempo och arbetssätt som gör det lätt att göra rätt.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="mailto:matslindskogprivat@gmail.com">Mejla mig</a>
+            <a class="btn" href="https://www.linkedin.com/in/mats-lindskog/">LinkedIn</a>
           </div>
         </div>
 
-        <div class="card">
-          <h2>Roller jag haft</h2>
-          <ul>
-            <li><strong>Strategisk rådgivare (2024 - pågår)</strong></li>
-            <li><strong>Kommunikationsdirektör (2014-2024</strong></li>
-            <li><strong>Tillförordnad HR-chef (2014)</strong></li
-            <li><strong>Utvecklingschef (2010-2014)</strong></li>
-            <li><strong>Kommunikationsstrateg (2007-2010)</strong></li>
-            <li><strong>Projektledare och kundansvarig (2001-2007</strong></li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h2>Kontakt</h2>
-          <ul>
-            <li>Mejl: <a href="mailto:matslindskogprivat@gmail.com">matslindskogprivat@gmail.com</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/mats-lindskog/">mats-lindskog</a></li>
-            <li>Telefon: 070-226 97 02</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <p class="footer">© Mats Lindskog · Uppdaterad: 2026</p>
-  </div>
-</body>
-</html>
+        <div class="mini">
+          <div class="card">
+            <h2>Snabbfakta</h2>
+            <p class="kicker">Kort om hur
