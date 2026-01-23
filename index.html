@@ -13,7 +13,6 @@
       --line: rgba(255,255,255,0.14);
 
       --panel: rgba(255,255,255,0.06);
-      --panel2: rgba(255,255,255,0.04);
 
       --accent: #6ee7ff;
 
@@ -111,12 +110,42 @@
       backdrop-filter: blur(10px);
     }
 
-    /* Start block layout */
+    /* Start block layout (text + stor bild) */
     .start{
       display:grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
+      grid-template-columns: 1fr 260px;
+      gap: 22px;
       align-items:start;
+    }
+    @media (max-width: 900px){
+      .start{grid-template-columns: 1fr;}
+    }
+
+    .profile-wrap{
+      display:flex;
+      justify-content:flex-end;
+    }
+    @media (max-width: 900px){
+      .profile-wrap{justify-content:flex-start;}
+    }
+
+    .profile-large{
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      object-fit: cover;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.30);
+      display:block;
+      margin-top: 8px;
+    }
+    @media (max-width: 900px){
+      .profile-large{
+        width: 200px;
+        height: 200px;
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
     }
 
     h1{
@@ -239,7 +268,6 @@
       font-size: 14px;
     }
 
-    /* Small polish */
     .divider{
       height:1px;
       background: rgba(255,255,255,0.08);
@@ -295,6 +323,10 @@
             </div>
 
             <div class="divider"></div>
+          </div>
+
+          <div class="profile-wrap">
+            <img class="profile-large" src="Mats.jpg" alt="Mats Lindskog">
           </div>
         </div>
       </div>
