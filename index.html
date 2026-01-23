@@ -7,7 +7,6 @@
 
   <style>
     :root{
-      /* Byt färger här */
       --bg: #0b1220;
       --ink: rgba(255,255,255,0.92);
       --muted: rgba(255,255,255,0.70);
@@ -26,7 +25,6 @@
     }
 
     *{box-sizing:border-box}
-
     html{scroll-behavior:smooth}
 
     body{
@@ -135,3 +133,266 @@
     h2{
       margin:0 0 10px;
       font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .lead{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 72ch;
+    }
+
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--ink);
+      font-weight: 750;
+    }
+    .btn.primary{
+      border-color: rgba(110,231,255,0.55);
+      background: rgba(110,231,255,0.16);
+    }
+    .btn:hover{text-decoration:none; filter: brightness(1.08)}
+
+    .profile{
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      object-fit: cover;
+      display:block;
+      margin: 10px 0 6px;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 12px;
+    }
+    .chip{
+      display:inline-flex;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    /* Competence cards */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 920px){ .cards{grid-template-columns:1fr} }
+
+    .card{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.04);
+      padding: 16px;
+    }
+
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* About */
+    .about{
+      display:grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 14px;
+      align-items:start;
+      margin-top: 12px;
+    }
+    @media (max-width: 920px){ .about{grid-template-columns:1fr} }
+
+    ul{margin:0; padding-left: 18px; color: var(--muted)}
+    li{margin: 6px 0}
+
+    .footer{
+      margin-top: 24px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <img class="avatar" src="Mats.jpg" alt="Mats Lindskog">
+        <div>
+          <strong>Mats Lindskog</strong>
+          <span>Västerås | Ledarskap | Utveckling | Genomförande</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#start">Start</a>
+        <a href="#kompetenser">Mina kompetenser</a>
+        <a href="#ommig">Om mig</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+
+
+    <!-- 1. START -->
+    <section id="start" class="section">
+      <div class="panel">
+        <div class="grid">
+          <div>
+            <h1>Får strategi att bli verklighet genom struktur, kultur och förmågor</h1>
+
+            <p class="lead">
+              Jag är en utvecklingsdriven ledare med stark systemförståelse och vana att arbeta nära politisk styrning.
+              Jag hjälper verksamheter att hitta fokus, fatta kloka vägval och få genomförandet att fungera.
+              Jag bidrar med riktning, tempo och arbetssätt som gör det lätt att göra rätt.
+            </p>
+
+            <div class="cta">
+              <a class="btn primary" href="mailto:matslindskogprivat@gmail.com">Mejla mig</a>
+              <a class="btn" href="https://www.linkedin.com/in/mats-lindskog/">LinkedIn</a>
+            </div>
+
+            <div class="meta">
+              <span class="chip">Systemförståelse</span>
+              <span class="chip">Strategisk styrning</span>
+              <span class="chip">Genomförande</span>
+              <span class="chip">Samverkan</span>
+            </div>
+          </div>
+
+          <div class="panel soft">
+            <h2>Snabbt om mig</h2>
+
+            <img src="Mats.jpg" alt="Mats Lindskog" class="profile">
+
+            <ul>
+              <li>Ledarskap i komplexa miljöer</li>
+              <li>Struktur, kultur och förmågor</li>
+              <li>Fokus på leverans och effekt</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 2. MINA KOMPETENSER -->
+    <section id="kompetenser" class="section">
+      <div class="panel">
+        <h2>Mina kompetenser</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Strategisk styrning, prioritering och genomförande</h3>
+            <p>Skapar riktning, gör val och bygger ett tempo som håller hela vägen till resultat.</p>
+          </div>
+
+          <div class="card">
+            <h3>Chefskap i ledningsmiljö</h3>
+            <p>Indirekt ledarskap och chef över chefer, med tydlighet och ansvar i fokus.</p>
+          </div>
+
+          <div class="card">
+            <h3>Verksamhetsutveckling i komplexa system</h3>
+            <p>Processer, gränssnitt och beroenden, och förbättringar som fungerar i vardagen.</p>
+          </div>
+
+          <div class="card">
+            <h3>Intressenthantering och påverkan</h3>
+            <p>Förankrar, positionerar och tar samhällsfrågor framåt i samspel med omvärlden.</p>
+          </div>
+
+          <div class="card">
+            <h3>Samverkan med näringsliv, akademi och offentliga aktörer</h3>
+            <p>Bygger samarbeten som skapar värde och stärker genomförandekraft.</p>
+          </div>
+
+          <div class="card">
+            <h3>Organisationsutveckling, service och leveransförmåga</h3>
+            <p>Tydliga roller, arbetsformer och uppföljning som gör det lätt att göra rätt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 3. OM MIG -->
+    <section id="ommig" class="section">
+      <div class="panel">
+        <h2>Om mig</h2>
+
+        <div class="about">
+          <div class="card">
+            <h3>Roller jag haft</h3>
+            <ul>
+              <li><strong>Kommunikationsdirektör</strong></li>
+              <li><strong>Strategisk rådgivare</strong></li>
+              <li><strong>Ledningsstrateg</strong></li>
+              <li><strong>Utvecklingschef</strong></li>
+              <li><strong>Tillförordnad HR-chef</strong></li>
+              <li><strong>Kommunikationsstrateg</strong></li>
+              <li><strong>Projektledare och kundansvarig</strong></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Så jobbar jag</h3>
+            <ul>
+              <li><strong>Läget idag och vart vi ska</strong><br>Jag ringar in nuläget och formulerar en tydlig målbild, så att glappet blir synligt och går att arbeta med.</li>
+              <li><strong>Tydliga roller och gemensamma arbetssätt</strong><br>Jag gör det lätt att förstå vem som gör vad, vilka förväntningar som gäller och hur beslut, samverkan och uppföljning ska fungera.</li>
+              <li><strong>En kultur som håller i vardagen</strong><br>Jag stärker samarbetet när det är press: ansvar, respekt, tidig signalering och hjälp över gränser, så att helheten vinner.</li>
+              <li><strong>Förmågor som stärker chefer och team</strong><br>Jag bygger praktiska färdigheter som får saker i mål: prioritering, tydlighet, mötesledning, svåra samtal och återkoppling.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 4. KONTAKT -->
+    <section id="kontakt" class="section">
+      <div class="panel">
+        <h2>Kontakt</h2>
+
+        <ul>
+          <li>Mejl: <a href="mailto:matslindskogprivat@gmail.com">matslindskogprivat@gmail.com</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/mats-lindskog/">mats-lindskog</a></li>
+          <li>Telefon: 070-226 97 02</li>
+        </ul>
+
+        <div class="cta">
+          <a class="btn primary" href="mailto:matslindskogprivat@gmail.com">Mejla mig</a>
+          <a class="btn" href="https://www.linkedin.com/in/mats-lindskog/">Skriv på LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">© Mats Lindskog · Uppdaterad: 2026</div>
+  </div>
+</body>
+</html>
