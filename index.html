@@ -18,6 +18,11 @@
       --shadow: 0 14px 36px rgba(0,0,0,0.30);
       --radius: 18px;
       --max: 1320px;
+
+      /* Justeras vid behov, men fungerar bra som standard */
+      --wrap-top: 22px;         /* motsvarar wrapens topp-padding */
+      --first-gap: 0px;         /* mellan topbar och start (vi kör 0 för exakt helskärm) */
+      --topbar-h: 74px;         /* stabil höjd på desktop */
     }
 
     *{box-sizing:border-box}
@@ -42,18 +47,26 @@
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
 
-    .wrap{max-width: var(--max); margin: 0 auto; padding: 22px 24px 70px}
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: var(--wrap-top) 24px 70px;
+    }
 
     /* Topbar */
     .topbar{
       position: sticky;
       top: 14px;
       z-index: 50;
+
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
+
+      /* stabil desktop-höjd så att start kan räkna korrekt */
+      height: var(--topbar-h);
 
       padding: 12px 14px;
       border: 1px solid var(--line);
@@ -84,7 +97,13 @@
     .brand strong{display:block; font-size: 14px}
     .brand span{display:block; font-size: 13px; color: var(--muted)}
 
-    .nav{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end}
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end
+    }
     .nav a{
       display:inline-flex;
       padding: 8px 12px;
@@ -254,13 +273,22 @@
       margin: 18px 0 0;
     }
 
-    /* HERO: Start fyller skärmen men innehållet ligger naturligt högre upp */
-    .hero{
-      margin-top: 0;
+    /* =========
+       HELSKÄRM FÖR START (före Kompetenser)
+       ========= */
+
+    /* Ta bort extra toppmarginal för första sektionen */
+    #start.section{ margin-top: var(--first-gap); }
+
+    /* Start ska fylla exakt skärmen under topbar + wrap-padding */
+    #start.hero{
+      min-height: calc(100dvh - var(--wrap-top) - var(--topbar-h) - var(--first-gap));
+      display: flex;
     }
 
-    .hero .panel{
-      min-height: calc(100svh - 140px);
+    /* Panelen fyller hela startens höjd */
+    #start.hero > .panel{
+      flex: 1;
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
@@ -268,18 +296,21 @@
       padding-bottom: clamp(24px, 6vh, 72px);
     }
 
-    .hero .start{
+    /* Innehållet får rimlig maxbredd */
+    #start.hero .start{
       width: 100%;
       max-width: 1120px;
     }
 
+    /* Mobil: topbar blir högre när den wrappar */
     @media (max-width: 760px){
-      .hero .panel{
-        min-height: calc(100svh - 120px);
-        padding-top: 24px;
-        padding-bottom: 24px;
+      :root{
+        --topbar-h: 122px;
       }
-      .hero .start{
+      .topbar{
+        height: var(--topbar-h);
+      }
+      #start.hero .start{
         max-width: none;
       }
     }
@@ -353,72 +384,4 @@
           <a class="card" href="strategisk-radgivning.html">
             <h3>Strategi och styrning</h3>
             <p>Ger stöd och råd till ledningen i prioritering och riktning.</p>
-          </a>
-
-          <a class="card" href="genomforandekraft.html">
-            <h3>Verksamhetsutveckling och genomförande</h3>
-            <p>Utvecklar verksamheter med struktur, fokus och genomförande.</p>
-          </a>
-
-          <a class="card" href="ledarutveckling.html">
-            <h3>Ledarutveckling</h3>
-            <p>Utbildar och stöttar chefer i ledarskap som skapar hållbara resultat.</p>
-          </a>
-
-          <a class="card" href="kommunikation.html">
-            <h3>Kommunikation</h3>
-            <p>Skapar riktning, samsyn och genomförande med kommunikation.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. OM MIG -->
-    <section id="ommig" class="section">
-      <div class="panel">
-        <h2>Kort om mig</h2>
-
-        <div class="card">
-          <p>
-            Jag har lång erfarenhet av att leda och utveckla i stora, politiskt styrda organisationer, både kommunalt och nationellt.
-            Jag har varit kommunikationsdirektör i Västerås stad och på SKR, och arbetar i dag som strategisk rådgivare i Åre kommun.
-          </p>
-
-          <p>
-            Det jag tar med mig från den resan är en trygghet i komplexitet. Jag är van att arbeta nära ledning och styrning,
-            hålla ihop helhet och detaljer samtidigt, och skapa struktur som gör att prioriteringar blir genomförbara i vardagen.
-            I Västerås har jag också haft uppdrag att leda en stab som arbetade med koncernövergripande styrning och utveckling
-            inom bland annat HR, juridik, kommunikation, internationellt samt trygghet och säkerhet.
-          </p>
-
-          <p>
-            Jag använder kommunikation som ett praktiskt verktyg för att få saker att hända, inte som ett lager ovanpå.
-            Med erfarenhet av intressenthantering och samhällsfrågor, samt uppdrag som ledamot i regeringens klarspråksråd,
-            har jag ett tydligt fokus på begriplighet, riktning och förtroende.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. KONTAKT -->
-    <section id="kontakt" class="section">
-      <div class="panel">
-        <h2>Kontakt</h2>
-
-        <ul>
-          <li>Mejl: <a href="mailto:matslindskogprivat@gmail.com">matslindskogprivat@gmail.com</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/mats-lindskog/">mats-lindskog</a></li>
-          <li>Telefon: 070-226 97 02</li>
-        </ul>
-
-        <div class="cta">
-          <a class="btn primary" href="mailto:matslindskogprivat@gmail.com">Mejla mig</a>
-          <a class="btn" href="https://www.linkedin.com/in/mats-lindskog/">Skriv på LinkedIn</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer">© Mats Lindskog · Uppdaterad: 2026</div>
-  </div>
-</body>
-</html>
+          <
