@@ -17,7 +17,10 @@
 
       --shadow: 0 14px 36px rgba(0,0,0,0.30);
       --radius: 18px;
-      --max: 1320px;
+
+      /* Läsbarhet på större skärmar */
+      --max: 1600px;
+      --text: clamp(16px, 1.05vw, 19px);
     }
 
     *{box-sizing:border-box}
@@ -30,6 +33,7 @@
 
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: var(--text);
       color: var(--ink);
       background:
         radial-gradient(900px 600px at 15% 10%, rgba(110,231,255,0.22), transparent 60%),
@@ -42,7 +46,15 @@
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
 
-    .wrap{max-width: var(--max); margin: 0 auto; padding: 22px 24px 70px}
+    /* Bredare wrap så du slipper zooma */
+    .wrap{
+      width: min(var(--max), 96vw);
+      margin: 0 auto;
+      padding: 22px 24px 70px;
+    }
+    @media (max-width: 760px){
+      .wrap{width: 96vw; padding: 18px 14px 56px;}
+    }
 
     /* Topbar */
     .topbar{
@@ -112,7 +124,7 @@
       border-radius: var(--radius);
       background: var(--panel);
       box-shadow: var(--shadow);
-      padding: 28px;
+      padding: clamp(20px, 2.2vw, 34px);
       backdrop-filter: blur(10px);
     }
 
@@ -155,27 +167,27 @@
     }
 
     h1{
-      font-size: 52px;
+      font-size: clamp(34px, 3.2vw, 56px);
       letter-spacing: -0.02em;
       margin: 8px 0 12px;
       line-height: 1.10;
       max-width: 22ch;
     }
     @media (max-width: 760px){
-      h1{font-size: 34px; max-width: none}
+      h1{max-width: none}
     }
 
     h2{
       margin:0 0 10px;
-      font-size: 18px;
+      font-size: clamp(18px, 1.4vw, 22px);
       letter-spacing: -0.01em;
     }
 
     .lead{
       margin: 0 0 16px;
       color: var(--muted);
-      font-size: 18px;
-      max-width: 72ch;
+      font-size: 1.05em;
+      max-width: 90ch;
     }
 
     .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px}
@@ -196,7 +208,7 @@
       border-color: rgba(110,231,255,0.55);
       background: rgba(110,231,255,0.16);
     }
-    .btn:hover{filter: brightness(1.08)}
+    .btn:hover{filter: brightness(1.08); text-decoration:none}
 
     /* Kompetenser */
     .cards{
@@ -216,13 +228,14 @@
 
     .card h3{
       margin: 0 0 8px;
-      font-size: 16px;
+      font-size: 1em;
     }
 
+    /* Viktigt: lås inte i px, låt skala med basstorleken */
     .card p{
       margin:0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 0.95em;
     }
 
     .cards a.card{
@@ -237,6 +250,21 @@
       transform: translateY(-1px);
     }
     .cards a.card:active{transform: translateY(0px)}
+
+    /* Om mig: egen textstil (inte "kortstil") */
+    .prose{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.04);
+      padding: clamp(18px, 1.6vw, 26px);
+      color: var(--muted);
+    }
+    .prose p{
+      margin: 0 0 14px;
+      font-size: 1.02em;
+      max-width: 90ch;
+    }
+    .prose p:last-child{margin-bottom:0}
 
     ul{margin:0; padding-left: 18px; color: var(--muted)}
     li{margin: 6px 0}
@@ -348,7 +376,7 @@
       <div class="panel">
         <h2>Kort om mig</h2>
 
-        <div class="card">
+        <div class="prose">
           <p>
             Jag har lång erfarenhet av att leda och utveckla i stora, politiskt styrda organisationer, både kommunalt och nationellt.
             Jag har varit kommunikationsdirektör i Västerås stad och på SKR, och arbetar i dag som strategisk rådgivare i Åre kommun.
@@ -392,3 +420,4 @@
   </div>
 </body>
 </html>
+
