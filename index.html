@@ -109,23 +109,6 @@
     section{scroll-margin-top: 92px}
     .section{margin-top: 22px}
 
-/* Start ska fylla skärmen fram till nästa sektion */
-.hero .panel{
-  min-height: calc(100svh - 160px);
-  display: flex;
-  align-items: center;
-}
-
-.hero .start{
-  width: 100%;
-}
-
-@media (max-width: 760px){
-  .hero .panel{
-    min-height: calc(100svh - 140px);
-  }
-}
-
     .panel{
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -257,16 +240,6 @@
     }
     .cards a.card:active{transform: translateY(0px)}
 
-    /* About */
-    .about{
-      display:grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 14px;
-      align-items:start;
-      margin-top: 12px;
-    }
-    @media (max-width: 760px){ .about{grid-template-columns:1fr} }
-
     ul{margin:0; padding-left: 18px; color: var(--muted)}
     li{margin: 6px 0}
 
@@ -281,6 +254,32 @@
       height:1px;
       background: rgba(255,255,255,0.08);
       margin: 18px 0 0;
+    }
+
+    /* HERO: Start ska fylla skärmen och placera innehållet snyggt */
+    .hero .panel{
+      min-height: calc(100svh - 160px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 38px;
+      padding-bottom: 38px;
+    }
+
+    .hero .start{
+      width: 100%;
+      max-width: 1120px;
+    }
+
+    @media (max-width: 760px){
+      .hero .panel{
+        min-height: calc(100svh - 140px);
+        padding-top: 24px;
+        padding-bottom: 24px;
+      }
+      .hero .start{
+        max-width: none;
+      }
     }
   </style>
 </head>
@@ -305,6 +304,7 @@
       </nav>
     </div>
 
+    <!-- 1. START -->
     <section id="start" class="section hero">
       <div class="panel">
         <div class="start">
@@ -315,8 +315,6 @@
               Jag är en utvecklingsdriven ledare med stark systemförståelse och vana att arbeta nära politisk styrning.
               Jag hjälper verksamheter att hitta fokus, fatta kloka vägval och få genomförandet att fungera.
               Jag bidrar med riktning, tempo och arbetssätt som gör det lätt att göra rätt.
-
-              
             </p>
 
             <div class="cta">
@@ -334,12 +332,12 @@
       </div>
     </section>
 
+    <!-- 2. KOMPETENSER -->
     <section id="kompetenser" class="section">
       <div class="panel">
         <h2>Kompetenser</h2>
 
         <div class="cards">
-
           <a class="card" href="jag-som-chef.html">
             <h3>Chefs- och ledarskap</h3>
             <p>Leder medarbetare och chefer med tydliga resultat.</p>
@@ -352,8 +350,7 @@
 
           <a class="card" href="strategisk-radgivning.html">
             <h3>Strategi och styrning</h3>
-            <p><p>Ger stöd och råd till ledning i prioritering och riktning.</p>
-</p>
+            <p>Ger stöd och råd till ledningen i prioritering och riktning.</p>
           </a>
 
           <a class="card" href="genomforandekraft.html">
@@ -370,42 +367,38 @@
             <h3>Kommunikation</h3>
             <p>Skapar riktning, samsyn och genomförande med kommunikation.</p>
           </a>
-
         </div>
       </div>
     </section>
 
+    <!-- 3. OM MIG -->
     <section id="ommig" class="section">
       <div class="panel">
-<!-- 3. OM MIG -->
-<section id="ommig" class="section">
-  <div class="panel">
-    <h2>Kort om mig</h2>
+        <h2>Kort om mig</h2>
 
-    <div class="card">
-      <p>
-        Jag har lång erfarenhet av att leda och utveckla i stora, politiskt styrda organisationer, både kommunalt och nationellt.
-        Jag har varit kommunikationsdirektör i Västerås stad och på SKR, och arbetar i dag som strategisk rådgivare i Åre kommun.
-        
-      </p>
+        <div class="card">
+          <p>
+            Jag har lång erfarenhet av att leda och utveckla i stora, politiskt styrda organisationer, både kommunalt och nationellt.
+            Jag har varit kommunikationsdirektör i Västerås stad och på SKR, och arbetar i dag som strategisk rådgivare i Åre kommun.
+          </p>
 
-      <p>
-        Det jag tar med mig från den resan är en trygghet i komplexitet. Jag är van att arbeta nära ledning och styrning,
-        hålla ihop helhet och detaljer samtidigt, och skapa struktur som gör att prioriteringar blir genomförbara i vardagen.
-        I Västerås har jag också haft uppdrag att leda en stab som arbetade med koncernövergripande styrning och utveckling
-        inom bland annat HR, juridik, kommunikation, internationellt samt trygghet och säkerhet.
-        
-      </p>
+          <p>
+            Det jag tar med mig från den resan är en trygghet i komplexitet. Jag är van att arbeta nära ledning och styrning,
+            hålla ihop helhet och detaljer samtidigt, och skapa struktur som gör att prioriteringar blir genomförbara i vardagen.
+            I Västerås har jag också haft uppdrag att leda en stab som arbetade med koncernövergripande styrning och utveckling
+            inom bland annat HR, juridik, kommunikation, internationellt samt trygghet och säkerhet.
+          </p>
 
-      <p>
-        Jag använder kommunikation som ett praktiskt verktyg för att få saker att hända, inte som ett lager ovanpå.
-        Med erfarenhet av intressenthantering och samhällsfrågor, samt uppdrag som ledamot i regeringens klarspråksråd,
-        har jag ett tydligt fokus på begriplighet, riktning och förtroende.
-      </p>
-    </div>
-  </div>
-</section>
+          <p>
+            Jag använder kommunikation som ett praktiskt verktyg för att få saker att hända, inte som ett lager ovanpå.
+            Med erfarenhet av intressenthantering och samhällsfrågor, samt uppdrag som ledamot i regeringens klarspråksråd,
+            har jag ett tydligt fokus på begriplighet, riktning och förtroende.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <!-- 4. KONTAKT -->
     <section id="kontakt" class="section">
       <div class="panel">
         <h2>Kontakt</h2>
