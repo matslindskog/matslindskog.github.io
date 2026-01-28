@@ -109,6 +109,23 @@
     section{scroll-margin-top: 92px}
     .section{margin-top: 22px}
 
+/* Start ska fylla skärmen fram till nästa sektion */
+.hero .panel{
+  min-height: calc(100svh - 160px);
+  display: flex;
+  align-items: center;
+}
+
+.hero .start{
+  width: 100%;
+}
+
+@media (max-width: 760px){
+  .hero .panel{
+    min-height: calc(100svh - 140px);
+  }
+}
+
     .panel{
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -288,7 +305,7 @@
       </nav>
     </div>
 
-    <section id="start" class="section">
+    <section id="start" class="section hero">
       <div class="panel">
         <div class="start">
           <div>
